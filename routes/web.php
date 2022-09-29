@@ -1,8 +1,8 @@
 <?php
-
-use App\Http\Controllers\Admin\Categorias\CategoriaController;
-use App\Http\Controllers\Admin\SubCategoria\SubCategoriaController;
 use App\Http\Controllers\Webcontroller;
+use App\Http\Livewire\Admin\Categorias\Categorias;
+use App\Http\Livewire\Admin\Clientes\ClientesComponent;
+use App\Http\Livewire\Admin\SubCategorias\SubCategoriaComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Webcontroller::class,'index']);
-Route::get('/categorias', \App\Http\Livewire\Admin\Categorias\Categorias::class)->name('admin.categorias');
-Route::get('/subcategorias', \App\Http\Livewire\Admin\SubCategoria\SubCategoriaComponent::class)->name('admin.subcategorias');
-//Route::get('/categorias', [CategoriaController::class,'index'])->name('admin.categorias');
-//Route::get('/subcategorias', [SubCategoriaController::class,'index'])->name('admin.subcategorias');
+Route::get('/categorias', Categorias::class)->name('admin.categorias');
+Route::get('/subcategorias', SubCategoriaComponent::class)->name('admin.subcategorias');
+Route::get('/clientes', ClientesComponent::class)->name('admin.clientes');
 

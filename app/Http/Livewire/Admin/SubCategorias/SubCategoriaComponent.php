@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\SubCategoria;
+namespace App\Http\Livewire\Admin\SubCategorias;
 
 use App\Models\Categorias\Categoria;
 use App\Models\Categorias\SubCategoria;
@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 
 class SubCategoriaComponent extends Component
 {
+
+
     use WithPagination;
 
     public $nome, $ativo = true, $categorias, $subCategoria_id, $categoria_id;
@@ -30,7 +32,7 @@ class SubCategoriaComponent extends Component
     {
         //subcategorias
         $subCategorias = SubCategoria::orderBy('nome', 'ASC')->paginate();
-        return view('livewire.admin.sub-categoria.sub-categoria-component', compact('subCategorias'))->extends('layouts.admin')->section('content');
+        return view('livewire.admin.sub-categorias.sub-categoria-component', compact('subCategorias'))->extends('layouts.admin')->section('content');
     }
 
     public function resetInput()

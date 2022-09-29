@@ -52,7 +52,7 @@
                 </x-slot:linha>
 
                 <x-slot:links>
-                    ''
+                    {{$categorias->links()}}
                 </x-slot:links>
     </x-data-table>
 

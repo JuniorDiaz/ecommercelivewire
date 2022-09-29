@@ -39,6 +39,10 @@
                         <li class="nav-item {{isActive('admin.subcategorias')}}">
                             <a class="nav-link" href="{{route('admin.subcategorias')}}">Sub-Categorias</a>
                         </li>
+
+                        <li class="nav-item {{isActive('admin.clientes')}}">
+                            <a class="nav-link" href="{{route('admin.clientes')}}">Clientes</a>
+                        </li>
                     </ul>
                 </div>
             </li>

@@ -16,7 +16,7 @@
         </nav>
     </div>
 
-    @include('livewire.admin.sub-categoria.modalform')
+    @include('livewire.admin.sub-categorias.modalform')
 
     <x-data-table>
         <x-slot:id>addSubCategoria</x-slot>
