@@ -9,8 +9,6 @@ use Livewire\WithPagination;
 
 class SubCategoriaComponent extends Component
 {
-
-
     use WithPagination;
 
     public $nome, $ativo = true, $categorias, $subCategoria_id, $categoria_id;
@@ -24,6 +22,11 @@ class SubCategoriaComponent extends Component
     {
         $data = $this->validate();
         SubCategoria::updateOrCreate(['id' => $this->subCategoria_id], $data);
+        if ($this->categoria_id != null) {
+            $this->dispatchBrowserEvent('toast', ['tipo' => 'success', 'texto' => 'Categoria Atualizado com Sucesso!']);
+        } else {
+            $this->dispatchBrowserEvent('toast', ['tipo' => 'success', 'texto' => 'Categoria Salvo com Sucesso!']);
+        }
         $this->resetInput();
         $this->dispatchBrowserEvent('close-modal');
     }

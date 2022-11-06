@@ -30,21 +30,19 @@
                 </x-slot>
 
                 <x-slot:linha>
-                    @foreach($categorias as $categoria)
+                    @foreach ($categorias as $categoria)
                         <tr>
-                            <td>{{$categoria->nome}}</td>
-                            <td>{{($categoria->ativo == 1 ? 'Ativo' : 'Desativado')}}</td>
+                            <td>{{ $categoria->nome }}</td>
+                            <td>{{ $categoria->ativo == 1 ? 'Ativo' : 'Desativado' }}</td>
                             <td>
                                 <div class="btn-group">
                                     <a href="#" wire:click.prevent="editarCategoria({{ $categoria->id }})"
-                                       data-toggle="modal"
-                                       data-target="#addCategoria"
-                                       class="btn btn-success btn-sm mr-2">Editar</a>
+                                        data-toggle="modal" data-target="#addCategoria"
+                                        class="btn btn-success btn-sm mr-2">Editar</a>
 
                                     <a href="#" wire:click.prevent="deletarCategoria({{ $categoria->id }})"
-                                       data-toggle="modal"
-                                       data-target="#deleteCategoria"
-                                       class="btn btn-danger btn-sm">Deletar</a>
+                                        data-toggle="modal" data-target="#deleteCategoria"
+                                        class="btn btn-danger btn-sm">Deletar</a>
                                 </div>
                             </td>
                         </tr>
@@ -52,10 +50,9 @@
                 </x-slot:linha>
 
                 <x-slot:links>
-                    {{$categorias->links()}}
+                    {{ $categorias->links() }}
                 </x-slot:links>
     </x-data-table>
-
 </div>
 @push('scripts')
     <script>

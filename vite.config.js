@@ -9,6 +9,7 @@ export default defineConfig({
 
                 'resources/views/layouts/partials/admin/assets/css/style.css',
                 'node_modules/@fortawesome/fontawesome-free/css/all.css',
+                'node_modules/jquery-toast-plugin/src/jquery.toast.css',
 
                 'resources/views/layouts/partials/admin/assets/js/off-canvas.js',
                 'resources/views/layouts/partials/admin/assets/js/hoverable-collapse.js',
@@ -16,7 +17,8 @@ export default defineConfig({
                 'resources/views/layouts/partials/admin/assets/js/settings.js',
                 'resources/views/layouts/partials/admin/assets/js/dashboard.js',
                 'resources/views/layouts/partials/admin/assets/js/data-table.js',
-                'resources/views/layouts/partials/admin/assets/js/modal-demo.js'
+                'resources/views/layouts/partials/admin/assets/js/modal-demo.js',
+                'node_modules/jquery-toast-plugin/src/jquery.toast.js',
             ],
             refresh: true,
         }),

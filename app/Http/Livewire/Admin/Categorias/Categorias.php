@@ -20,6 +20,11 @@ class Categorias extends Component
     {
         $data = $this->validate();
         Categoria::updateOrCreate(['id' => $this->categoria_id], $data);
+        if ($this->categoria_id != null) {
+            $this->dispatchBrowserEvent('toast', ['tipo' => 'success', 'texto' => 'Categoria Atualizado com Sucesso!']);
+        } else {
+            $this->dispatchBrowserEvent('toast', ['tipo' => 'success', 'texto' => 'Categoria Salvo com Sucesso!']);
+        }
         $this->resetInput();
         $this->dispatchBrowserEvent('close-modal');
     }
@@ -31,7 +36,7 @@ class Categorias extends Component
             return $query->where('nome', 'like', '%' . $term . '%');
         })->orderBy('nome', 'ASC')->paginate();
 
-        return view('livewire.admin.categorias.categorias',compact('categorias'))->extends('layouts.admin')->section('content');
+        return view('livewire.admin.categorias.categorias', compact('categorias'))->extends('layouts.admin')->section('content');
     }
 
     public function editarCategoria(int $categoria_id)
@@ -51,6 +56,7 @@ class Categorias extends Component
     {
         Categoria::findOrFail($this->categoria_id)->delete();
         $this->dispatchBrowserEvent('close-modal');
+        $this->dispatchBrowserEvent('toast', ['tipo' => 'success', 'texto' => 'Categoria Deletado com Sucesso!']);
         $this->resetInput();
     }
 
@@ -71,14 +77,6 @@ class Categorias extends Component
     {
         $this->resetInput();
     }
-
-//    protected function rules()
-//    {
-//        return [
-//            'nome' => "required|string|min:5|unique:categorias,nome,{$this->id}",
-//            'ativo' => 'boolean'
-//        ];
-//    }
 
     protected function rules()
     {
